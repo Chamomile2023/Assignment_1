@@ -3,12 +3,18 @@
     font-family: 'Heebo', sans-serif;
     &__hero{
         display: flex;
+        transform: translateX(-100%);
+        transition: 0.3s ease-in-out;
+    }
+    &__hero--active{
+        transform: translateX(0);
+        transition: 0.3s ease-in-out;
     }
     &__left{
         width: 30%;
         height: 100vh;
         position: fixed;
-        top: 0;
+        top: -100px;
         left: 0;
         background-color: #fff;
     }
@@ -17,7 +23,7 @@
             width: 70%;
             height: 100vh;
             position: fixed;
-            top: 0;
+            top: -100px;
             right: 0;
             background-color: rgba(0,0,0,.5);
         }
@@ -75,6 +81,11 @@
 }
 .active{
     background-color: #000;
-    color: #fff !important;
     border-radius: 15px;
+}
+.active p{
+    color: #fff;
+}
+.close{
+    transform: translateX(0);
 }

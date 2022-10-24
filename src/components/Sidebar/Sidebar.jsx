@@ -1,17 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Sidebar.scss";
 import Button from "../Button/Button";
 import { NavLink } from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar = ({ show, setShow }) => {
     return (
         <>
             <div className="sidebar">
-                <div className="sidebar__hero">
+                <div className={` ${show ? "sidebar__hero--active" : "sidebar__hero"}`}>
                     <div className="sidebar__left">
                         <div className="sidebar__start">
                             <h2 className="sidebar__start--title">Category</h2>
-                            <Button>
+                            <Button onClick={() => setShow(!show)}>
                                 <i class="fa-solid fa-xmark sidebar__start--close"></i>
                             </Button>
                         </div>

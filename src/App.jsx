@@ -10,6 +10,12 @@ import Users from "./components/Users/User";
 import Unknown from "./components/Unknown/Unknown";
 
 function App() {
+  //Sidebar
+  const [show, setShow] = useState(false);
+  const toggle = () => {
+    return setShow((e) => !e);
+  };
+  //Fetch
   const [loading, setLoading] = useState(false);
   const [userData, setUserData] = useState([]);
   const getUserData = async () => {
@@ -25,8 +31,8 @@ function App() {
   console.log(userData);
   return (
     <>
-      <Header />
-      {/* <Sidebar /> */}
+      <Header show={show} setShow={setShow} />
+      <Sidebar show={show} setShow={setShow} />
       <Routes>
         <Route path="/" element={loading ? <Main /> : <Loading />} />
         <Route path="/profile" element={loading ? <Profile /> : <Loading />} />
