@@ -1,0 +1,47 @@
+.sidebar{
+    width: 100%;
+    font-family: 'Heebo', sans-serif;
+    &__hero{
+        display: flex;
+    }
+    &__left{
+        width: 30%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+    }
+    &__right{
+        &--overlay{
+            width: 70%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: rgba(0,0,0,.5);
+        }
+    }
+    &__start{
+        display: flex;
+        align-items: center;
+        padding: 30px;
+        &--close{
+            margin-left: auto;
+            font-weight: bold;
+            font-size: 25px;
+        }
+    }
+    &__middle{
+        position: relative;
+        padding: 0 30px;
+        &--input{
+            width: 100%;
+            padding: 10px 20px;
+        }
+        &--search{
+            position: absolute;
+            top: 10px;
+        }
+    }
+}
