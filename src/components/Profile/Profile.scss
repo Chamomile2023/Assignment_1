@@ -1,0 +1,56 @@
+.profile{
+    width: 100%;
+    font-family: 'Heebo', sans-serif;
+    position: relative;
+    &__hero{
+       
+    }
+    &__card{
+        width: 300px;
+        height: 450px;
+        position: absolute;
+        top: 50px;
+        left: 50%;
+        transform: translate(-50%);
+        box-shadow: 0 10px 36px rgb(0 0 0/5%);
+        border-radius: 15px;
+        text-align: center;
+        &--img{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            top: 120px;
+            left: 110px;
+        }
+        &--shape{
+            width: 300px;
+            height: 230px;
+            background-color: #000;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            border-bottom: 120px solid #fff;
+            border-right: 300px solid transparent;
+        }
+        &--name{
+            font-weight: bold;
+            font-size: 30px;
+            line-height: 25px;
+            padding: 10px;
+        }
+        &--job{
+            color: gray;
+            font-weight: bold;
+            font-size: 30px;
+            line-height: 50px;
+        }
+        &--description{
+            position: absolute;
+            bottom: 35px;
+            font-size: 18px;
+            color: rgb(92, 92, 92);
+            line-height: 20px;
+            padding: 20px;
+        }
+    }
+}
