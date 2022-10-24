@@ -1,5 +1,6 @@
 import React from "react";
 import './Sidebar.scss'
+import Button from '../Button/Button'
 
 const Sidebar = () => {
     return <>
@@ -8,13 +9,16 @@ const Sidebar = () => {
                 <div className="sidebar__left">
                     <div className="sidebar__start">
                         <h2 className="sidebar__start--title">Category</h2>
-                        <i class="fa-solid fa-xmark sidebar__start--close"></i>
+                        <Button> <i class="fa-solid fa-xmark sidebar__start--close"></i></Button>
                     </div>
                     <div className="sidebar__middle">
                         <input type="text" className="sidebar__middle--input" placeholder="Search" />
                         <i class="fa-solid fa-magnifying-glass sidebar__middle--search"></i>
                     </div>
-                    <div className="sidebar__end"></div>
+                    <div className="sidebar__end">
+                        <Button className="btn"> <p className="sidebar__end--button">Users</p></Button>
+                        <Button className="sidebar__end--btn"> <p className="sidebar__end--button">Unknown</p></Button>
+                    </div>
                 </div>
                 <div className="sidebar__right">
                     <div className="sidebar__right--overlay">

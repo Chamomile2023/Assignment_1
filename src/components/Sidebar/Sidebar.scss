@@ -25,11 +25,15 @@
     &__start{
         display: flex;
         align-items: center;
+        justify-content: space-between;
         padding: 30px;
         &--close{
-            margin-left: auto;
+            padding:  8px 12px;
             font-weight: bold;
-            font-size: 25px;
+            font-size: 20px;
+        }
+        &--title{
+            font-size: 35px;
         }
     }
     &__middle{
@@ -37,11 +41,35 @@
         padding: 0 30px;
         &--input{
             width: 100%;
-            padding: 10px 20px;
+            padding: 12px 20px;
+            outline: none;
+            border: 2px solid #000;
+            border-radius: 10px;
         }
         &--search{
             position: absolute;
-            top: 10px;
+            top: 0;
+            right: 31px;
+            border: 1px solid #000;
+            padding: 12px 14px;
+            background-color: #000;
+            color: #fff;
+            border-radius: 0 10px 10px 0;
+        }
+    }
+    &__end{
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        &--button{
+            font-weight: bold;
+            font-size: 20px;
+            text-align: start;
+            padding: 10px;
+            border: none;
+        }
+        &--btn{
+            border: none;
         }
     }
 }
