@@ -6,7 +6,8 @@ import Main from "./components/Main/Main";
 import Loading from "./components/Loading/Loading";
 import Profile from "./components/Profile/Profile";
 import Sidebar from "./components/Sidebar/Sidebar";
-import Button from "./components/Button/Button";
+import Users from "./components/Users/User";
+import Unknown from "./components/Unknown/Unknown";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -25,10 +26,12 @@ function App() {
   return (
     <>
       <Header />
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Routes>
-        {/* <Route path="/" element={loading ? <Main /> : <Loading />} /> */}
+        <Route path="/" element={loading ? <Main /> : <Loading />} />
         <Route path="/profile" element={loading ? <Profile /> : <Loading />} />
+        <Route path="/users" element={loading ? <Users /> : <Loading />} />
+        <Route path="/unknown" element={loading ? <Unknown /> : <Loading />} />
       </Routes>
     </>
   );

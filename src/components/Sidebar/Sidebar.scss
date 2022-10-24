@@ -66,10 +66,15 @@
             font-size: 20px;
             text-align: start;
             padding: 10px;
-            border: none;
         }
-        &--btn{
-            border: none;
+        &--component{
+            width: 100%;
+            border: 1px solid transparent !important;
         }
     }
+}
+.active{
+    background-color: #000;
+    color: #fff !important;
+    border-radius: 15px;
 }
