@@ -1,0 +1,40 @@
+.header{
+    width: 100%;
+    box-shadow: 0 10px 36px rgb(0 0 0/5%);
+    &__hero{
+        display: flex;
+        align-items: center;
+    }
+    &__start{
+        margin-right: auto;
+        &--icon{
+            padding: 0 3px;
+        }
+    }
+    &__middle{
+        margin: auto;
+        text-align: center;
+        &--logo{
+            font-weight: bold;
+            font-size: 50px;
+            color: #000;
+        }
+        &--words{
+            font-size: 20px;
+            color: gray;
+            margin-top: -40px;
+        }
+    }
+    &__end{
+        margin-left: auto;
+        &--icon{
+            padding: 0 3px;
+        }
+    }
+}
+h1 {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
