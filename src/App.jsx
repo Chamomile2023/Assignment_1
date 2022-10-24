@@ -8,6 +8,7 @@ import Profile from "./components/Profile/Profile";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Users from "./components/Users/User";
 import Unknown from "./components/Unknown/Unknown";
+import UserCard from "./components/UserCard/UserCard";
 
 function App() {
   //Sidebar
@@ -33,8 +34,9 @@ function App() {
     <>
       <Header show={show} setShow={setShow} />
       <Sidebar show={show} setShow={setShow} />
+      <UserCard />
       <Routes>
-        <Route path="/" element={loading ? <Main /> : <Loading />} />
+        {/* <Route path="/" element={loading ? <Main /> : <Loading />} /> */}
         <Route path="/profile" element={loading ? <Profile /> : <Loading />} />
         <Route path="/users" element={loading ? <Users /> : <Loading />} />
         <Route path="/unknown" element={loading ? <Unknown /> : <Loading />} />

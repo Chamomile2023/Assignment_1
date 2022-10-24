@@ -21,12 +21,13 @@
         }
         &--words{
             font-size: 20px;
-            color: gray;
+            color: gray;    
             margin-top: -40px;
         }
     }
     &__end{
         margin-left: auto;
+        z-index: 100;
         &--icon{
             padding: 0 3px;
         }

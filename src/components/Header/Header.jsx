@@ -24,8 +24,8 @@ const Header = ({ show, setShow }) => {
               </NavLink>
             </div>
             <div className="header__end">
-              <NavLink to="/profile">
-                <ButtonCircle>
+              <NavLink to="/profile" className="header__end--link">
+                <ButtonCircle className="header__end--button">
                   <i class="fa-regular fa-user header__end--icon"></i>
                 </ButtonCircle>
               </NavLink>
