@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./singleUserCard.scss";
-import img from "../img/profile.jpg";
 import Button from "../Button/Button";
+import { useParams } from "react-router-dom";
 
 const singleUserCard = ({ allUsers }) => {
+    const { id } = useParams();
+    const [idNum, setIdNum] = useState([]);
+    const getIdData = async () => {
+        const request = await fetch(`https://reqres.in/api/users/${id}`);
+        const response = await request.json();
+        setIdNum(response);
+    };
+    useEffect(() => {
+        getIdData();
+    }, []);
     return (
         <>
             <div className="single">
-                {allUsers.map((user) => {
+                {allUsers.filter((user) => user.id == id).map((user) => {
                     return <div className="single__card" key={user.id}>
                         <img src={user.avatar} alt="" className="single__card--img" />
                         <h3 className="single__card--name">{user.first_name + " " + user.last_name}</h3>

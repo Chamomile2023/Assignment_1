@@ -1,6 +1,7 @@
 import React from "react";
 import "./UserCard.scss";
 import Button from "../Button/Button";
+import { NavLink } from "react-router-dom";
 
 const UserCard = ({ userData, user }) => {
   return (
@@ -12,7 +13,9 @@ const UserCard = ({ userData, user }) => {
             {user.first_name + " " + user.last_name}
           </h2>
           <p className="user__card--email">{user.email}</p>
-          <Button className="user__card--button">See more</Button>
+          <NavLink to={`/users/${user?.id}`}>
+            <Button className="user__card--button">See more</Button>
+          </NavLink>
         </div>
       </div>
     </>

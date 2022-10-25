@@ -18,6 +18,7 @@ const User = ({ userData }) => {
       <div className="all-user">
         <div className="container">
           <div className="all-user__hero">
+            <h1 className="all-user--title">All users</h1>
             <div className="all-user__cards">
               {userTwoData.map((user) => {
                 return <UserCard user={user} className="all-user__card" />;

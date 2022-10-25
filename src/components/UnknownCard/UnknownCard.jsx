@@ -2,6 +2,7 @@ import React from "react";
 import "./UnknownCard.scss";
 import "../UserCard/UserCard";
 import Button from "../Button/Button";
+import { NavLink } from "react-router-dom";
 
 const UnknownCard = ({ unknown, unknownData }) => {
   return (
@@ -17,7 +18,9 @@ const UnknownCard = ({ unknown, unknownData }) => {
           <p className="user__card--email unknown__card--value">
             Pantone value: {unknown.pantone_value}
           </p>
-          <Button className="user__card--button">See more</Button>
+          <NavLink to={`/unknown/${unknown?.id}`}>
+            <Button className="user__card--button">See more</Button>
+          </NavLink>
         </div>
       </div>
     </>

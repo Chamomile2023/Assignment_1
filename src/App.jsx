@@ -21,7 +21,7 @@ function App() {
   const [allUsers, setAllUsers] = useState([]);
   const getUserData = async () => {
     setLoading(false);
-    const request = await fetch("https://reqres.in/api/users?page=1");
+    const request = await fetch("https://reqres.in/api/users?page=1/${id}");
     const response = await request.json();
     setUserData(response.data);
     setLoading(true);
@@ -42,7 +42,7 @@ function App() {
   //Fetch Unknown
   const [unknownData, setUnknownData] = useState([]);
   const getUnknownData = async () => {
-    const request = await fetch("https://reqres.in/api/unknown");
+    const request = await fetch(`https://reqres.in/api/unknown`);
     const response = await request.json();
     setUnknownData(response.data);
   };
