@@ -1,19 +1,22 @@
 import React from "react";
 import "./UserCard.scss";
-import img from "../img/profile.jpg"
-import Button from '../Button/Button'
+import Button from "../Button/Button";
 
-const UserCard = () => {
-    return <>
-        <div className="user">
-            <div className="user__card">
-                <img src={img} alt="" className="user__card--img" />
-                <h2 className="user__card--name">George Bluth</h2>
-                <p className="user__card--email">Email: george.bluth@reqres.in</p>
-                <Button className="user__card--button">See more</Button>
-            </div>
+const UserCard = ({ userData, user }) => {
+  return (
+    <>
+      <div className="user">
+        <div className="user__card">
+          <img src={user.avatar} alt="" className="user__card--img" />
+          <h2 className="user__card--name">
+            {user.first_name + " " + user.last_name}
+          </h2>
+          <p className="user__card--email">{user.email}</p>
+          <Button className="user__card--button">See more</Button>
         </div>
-    </>;
+      </div>
+    </>
+  );
 };
 
 export default UserCard;

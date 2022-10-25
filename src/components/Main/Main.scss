@@ -1,0 +1,24 @@
+.main{
+    width: 100%;
+    &__hero{
+        padding: 30px 0;
+    }
+    &__user{
+        &--title{
+            font-weight: bold;
+            font-size: 35px;
+        }
+        &--button{
+            width: 100%;
+            padding: 10px 20px;
+            margin: 20px 0;
+            font-size: 20px;
+        }
+    }
+    &__cards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 24px 0;
+    }
+}

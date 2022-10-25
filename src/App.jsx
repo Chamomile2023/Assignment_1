@@ -9,14 +9,12 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Users from "./components/Users/User";
 import Unknown from "./components/Unknown/Unknown";
 import UserCard from "./components/UserCard/UserCard";
+import UnknownCard from "./components/UnknownCard/UnknownCard";
 
 function App() {
   //Sidebar
   const [show, setShow] = useState(false);
-  const toggle = () => {
-    return setShow((e) => !e);
-  };
-  //Fetch
+  //Fetch User
   const [loading, setLoading] = useState(false);
   const [userData, setUserData] = useState([]);
   const getUserData = async () => {
@@ -29,17 +27,43 @@ function App() {
   useEffect(() => {
     getUserData();
   }, []);
-  console.log(userData);
+  //Fetch Unknown
+  const [unknownData, setUnknownData] = useState([]);
+  const getUnknownData = async () => {
+    const request = await fetch("https://reqres.in/api/unknown");
+    const response = await request.json();
+    setUnknownData(response.data);
+  };
+  useEffect(() => {
+    getUnknownData();
+  }, []);
+  console.log(unknownData);
   return (
     <>
       <Header show={show} setShow={setShow} />
       <Sidebar show={show} setShow={setShow} />
-      <UserCard />
       <Routes>
-        {/* <Route path="/" element={loading ? <Main /> : <Loading />} /> */}
+        <Route
+          path="/"
+          element={
+            loading ? (
+              <Main userData={userData} unknownData={unknownData} />
+            ) : (
+              <Loading />
+            )
+          }
+        />
         <Route path="/profile" element={loading ? <Profile /> : <Loading />} />
-        <Route path="/users" element={loading ? <Users /> : <Loading />} />
-        <Route path="/unknown" element={loading ? <Unknown /> : <Loading />} />
+        <Route
+          path="/users"
+          element={loading ? <Users userData={userData} /> : <Loading />}
+        />
+        <Route
+          path="/unknown"
+          element={
+            loading ? <Unknown unknownData={unknownData} /> : <Loading />
+          }
+        />
       </Routes>
     </>
   );

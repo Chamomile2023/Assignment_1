@@ -1,0 +1,12 @@
+.all-user{
+    &__cards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+        text-align: start;
+        margin: 35px 0;
+    }
+    &__card{
+        margin: 50px;
+    }
+}
