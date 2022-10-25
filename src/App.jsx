@@ -10,6 +10,7 @@ import Users from "./components/Users/User";
 import Unknown from "./components/Unknown/Unknown";
 import UserCard from "./components/UserCard/UserCard";
 import UnknownCard from "./components/UnknownCard/UnknownCard";
+import SingleUserCard from "./components/singleUserCard/singleUserCard";
 
 function App() {
   //Sidebar
@@ -17,6 +18,7 @@ function App() {
   //Fetch User
   const [loading, setLoading] = useState(false);
   const [userData, setUserData] = useState([]);
+  const [allUsers, setAllUsers] = useState([]);
   const getUserData = async () => {
     setLoading(false);
     const request = await fetch("https://reqres.in/api/users?page=1");
@@ -26,6 +28,16 @@ function App() {
   };
   useEffect(() => {
     getUserData();
+  }, []);
+  const [userTwoData, setUserTwoData] = useState([]);
+  const getUserTwoData = async () => {
+    const request = await fetch("https://reqres.in/api/users?page=2");
+    const response = await request.json();
+    setUserTwoData(response.data);
+    setAllUsers([...userData, ...userTwoData]);
+  };
+  useEffect(() => {
+    getUserTwoData();
   }, []);
   //Fetch Unknown
   const [unknownData, setUnknownData] = useState([]);
@@ -62,6 +74,10 @@ function App() {
           element={
             loading ? <Unknown unknownData={unknownData} /> : <Loading />
           }
+        />
+        <Route
+          path="/users/:id"
+          element={<SingleUserCard allUsers={allUsers} />}
         />
       </Routes>
     </>
