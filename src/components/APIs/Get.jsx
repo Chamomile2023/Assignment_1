@@ -1,6 +1,7 @@
 const Get = {
-  userData: () => {
-    return;
+  getUserData: async () => {
+    const request = await fetch("https://reqres.in/api/users?page");
+    const response = await request.json();
   },
 };
 

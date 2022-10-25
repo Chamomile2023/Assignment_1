@@ -5,7 +5,7 @@ import Button from "../Button/Button";
 const UserCard = ({ userData, user }) => {
   return (
     <>
-      <div className="user">
+      <div className="user" key={user.id}>
         <div className="user__card">
           <img src={user.avatar} alt="" className="user__card--img" />
           <h2 className="user__card--name">

@@ -19,7 +19,7 @@ function App() {
   const [userData, setUserData] = useState([]);
   const getUserData = async () => {
     setLoading(false);
-    const request = await fetch("https://reqres.in/api/users?page");
+    const request = await fetch("https://reqres.in/api/users?page=1");
     const response = await request.json();
     setUserData(response.data);
     setLoading(true);
@@ -37,7 +37,6 @@ function App() {
   useEffect(() => {
     getUnknownData();
   }, []);
-  console.log(unknownData);
   return (
     <>
       <Header show={show} setShow={setShow} />
