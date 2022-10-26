@@ -84,7 +84,13 @@ function App() {
         />
         <Route
           path="/unknown/:id"
-          element={loading ? <SingleUnknownCard /> : <Loading />}
+          element={
+            loading ? (
+              <SingleUnknownCard unknownData={unknownData} />
+            ) : (
+              <Loading />
+            )
+          }
         />
       </Routes>
     </>

@@ -1,0 +1,31 @@
+.single__card{
+    &--img{
+        width: 300px;
+        height: 270px;
+        border-radius: 10px;
+        background-color: aqua;
+    }
+    &--color{
+        color: gray;
+        font-weight: bold;
+    }
+    &--year{
+        font-size: 18px;
+    }
+    &--btn{
+        width: 100%;
+        padding: 14px 0;
+        margin-top: 10px;
+    }
+}
+.card{
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 300px;
+    height: 475px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    border-radius: 10px;
+}
