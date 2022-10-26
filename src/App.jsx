@@ -11,6 +11,7 @@ import Unknown from "./components/Unknown/Unknown";
 import UserCard from "./components/UserCard/UserCard";
 import UnknownCard from "./components/UnknownCard/UnknownCard";
 import SingleUserCard from "./components/singleUserCard/singleUserCard";
+import SingleUnknownCard from "./components/SingleUnknownCard/SingleUnknownCard";
 
 function App() {
   //Sidebar
@@ -77,7 +78,13 @@ function App() {
         />
         <Route
           path="/users/:id"
-          element={<SingleUserCard allUsers={allUsers} />}
+          element={
+            loading ? <SingleUserCard allUsers={allUsers} /> : <Loading />
+          }
+        />
+        <Route
+          path="/unknown/:id"
+          element={loading ? <SingleUnknownCard /> : <Loading />}
         />
       </Routes>
     </>
