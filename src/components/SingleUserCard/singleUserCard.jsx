@@ -4,16 +4,17 @@ import Button from "../Button/Button";
 import { useParams } from "react-router-dom";
 
 const singleUserCard = ({ allUsers }) => {
-  const { id } = useParams();
-  const [idNum, setIdNum] = useState([]);
-  const getIdData = async () => {
-    const request = await fetch(`https://reqres.in/api/users/${id}`);
-    const response = await request.json();
-    setIdNum(response.data);
-  };
-  useEffect(() => {
-    getIdData();
-  }, []);
+  // const { id } = useParams();
+  // const [idNum, setIdNum] = useState([]);
+  // const getIdData = async () => {
+  //   const request = await fetch(`https://reqres.in/api/users/${id}`);
+  //   const response = await request.json();
+  //   setIdNum(response.data);
+  // };
+  // useEffect(() => {
+  //   getIdData();
+  // }, []);
+  // console.log(idNum);
   return (
     <>
       <div className="single">
