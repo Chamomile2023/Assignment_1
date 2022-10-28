@@ -14,8 +14,10 @@ const Main = ({ userData, unknownData }) => {
             <div className="main__user">
               <h2 className="main__user--title">Top Users:</h2>
               <div className="main__cards">
-                {userData.slice(0, 4).map((user) => {
-                  return <UserCard userData={userData} user={user} />;
+                {userData.slice(0, 4).map((user, index) => {
+                  return (
+                    <UserCard userData={userData} user={user} key={index} />
+                  );
                 })}
               </div>
               <NavLink to="/users">

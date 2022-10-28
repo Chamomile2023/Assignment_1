@@ -3,22 +3,23 @@ import "./singleUserCard.scss";
 import Button from "../Button/Button";
 import { useParams } from "react-router-dom";
 
-const singleUserCard = ({ allUsers }) => {
-  // const { id } = useParams();
-  // const [idNum, setIdNum] = useState([]);
-  // const getIdData = async () => {
-  //   const request = await fetch(`https://reqres.in/api/users/${id}`);
-  //   const response = await request.json();
-  //   setIdNum(response.data);
-  // };
-  // useEffect(() => {
-  //   getIdData();
-  // }, []);
-  // console.log(idNum);
+const singleUserCard = ({ userData, userTwoData }) => {
+  const { id } = useParams();
+  const [all, setAll] = useState([]);
+  const [idNum, setIdNum] = useState([]);
+  const getIdData = async () => {
+    const request = await fetch(`https://reqres.in/api/users/${id}`);
+    const response = await request.json();
+    setIdNum(response.data);
+    setAll([...userData, ...userTwoData]);
+  };
+  useEffect(() => {
+    getIdData();
+  }, []);
   return (
     <>
       <div className="single">
-        {allUsers
+        {all
           .filter((user) => user.id == id)
           .map((user) => {
             return (

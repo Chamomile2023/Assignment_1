@@ -1,5 +1,5 @@
 import "./App.scss";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
@@ -8,12 +8,12 @@ import Profile from "./components/Profile/Profile";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Users from "./components/Users/User";
 import Unknown from "./components/Unknown/Unknown";
-import UserCard from "./components/UserCard/UserCard";
-import UnknownCard from "./components/UnknownCard/UnknownCard";
 import SingleUserCard from "./components/singleUserCard/singleUserCard";
 import SingleUnknownCard from "./components/SingleUnknownCard/SingleUnknownCard";
+// import Store from "./store";
 
 function App() {
+  // const { data } = useContext(Store);
   //Sidebar
   const [show, setShow] = useState(false);
   //Fetch User
@@ -34,8 +34,7 @@ function App() {
   const getUserTwoData = async () => {
     const request = await fetch("https://reqres.in/api/users?page=2");
     const response = await request.json();
-    setUserTwoData(response.data);
-    setAllUsers([...userData, ...userTwoData]);
+    setUserTwoData([...userData, ...response.data]);
   };
   useEffect(() => {
     getUserTwoData();
@@ -50,6 +49,8 @@ function App() {
   useEffect(() => {
     getUnknownData();
   }, []);
+
+  // console.log(data);
   return (
     <>
       <Header show={show} setShow={setShow} />
@@ -79,7 +80,11 @@ function App() {
         <Route
           path="/users/:id"
           element={
-            loading ? <SingleUserCard allUsers={allUsers} /> : <Loading />
+            loading ? (
+              <SingleUserCard userData={userData} userTwoData={userTwoData} />
+            ) : (
+              <Loading />
+            )
           }
         />
         <Route

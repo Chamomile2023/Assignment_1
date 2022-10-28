@@ -1,12 +1,17 @@
 .sidebar{
-    width: 100%;
     font-family: 'Heebo', sans-serif;
+    position: relative;
+    z-index: 100;
     &__hero{
+        width: 100%;
         display: flex;
         transform: translateX(-100%);
         transition: 0.3s ease-in-out;
     }
     &__hero--active{
+        width: 100%;
+        display: flex;
+        position: fixed;
         transform: translateX(0);
         transition: 0.3s ease-in-out;
     }
@@ -14,17 +19,17 @@
         width: 30%;
         height: 100vh;
         position: fixed;
-        top: -100px;
+        top: -90px;
         left: 0;
         background-color: #fff;
-        z-index: 10;
+        z-index: 100;
     }
     &__right{
         &--overlay{
             width: 70%;
             height: 100vh;
             position: fixed;
-            top: -100px;
+            top: -90px;
             right: 0;
             background-color: rgba(0,0,0,.5);
         }

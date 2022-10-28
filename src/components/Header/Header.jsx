@@ -2,6 +2,7 @@ import React from "react";
 import "./Header.scss";
 import { NavLink } from "react-router-dom";
 import ButtonCircle from "../ButtonCircle/ButtonCircle";
+import { Link } from "react-router-dom";
 
 const Header = ({ show, setShow }) => {
   return (
@@ -14,7 +15,7 @@ const Header = ({ show, setShow }) => {
                 className="header__start--button"
                 onClick={() => setShow(true)}
               >
-                <i class="fa-solid fa-bars header__start--icon"></i>
+                <i className="fa-solid fa-bars header__start--icon"></i>
               </ButtonCircle>
             </div>
             <div className="header__middle">
@@ -24,11 +25,11 @@ const Header = ({ show, setShow }) => {
               </NavLink>
             </div>
             <div className="header__end">
-              <NavLink to="/profile" className="header__end--link">
+              <Link to="/profile" className="header__end--link">
                 <ButtonCircle className="header__end--button">
-                  <i class="fa-regular fa-user header__end--icon"></i>
+                  <i className="fa-regular fa-user header__end--icon"></i>
                 </ButtonCircle>
-              </NavLink>
+              </Link>
             </div>
           </div>
         </div>
