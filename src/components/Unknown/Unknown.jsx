@@ -11,7 +11,7 @@ const Unknown = ({ unknownData }) => {
             <h1 className="unknown__title">All Unknown</h1>
             <div className="unknown__cards">
               {unknownData.map((unknown) => {
-                return <UnknownCard unknown={unknown} />;
+                return <UnknownCard unknown={unknown} key={unknown.id}/>;
               })}
             </div>
           </div>

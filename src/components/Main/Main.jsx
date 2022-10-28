@@ -29,7 +29,11 @@ const Main = ({ userData, unknownData }) => {
               <div className="main__cards">
                 {unknownData.slice(0, 4).map((unknown) => {
                   return (
-                    <UnknownCard unknown={unknown} unknownData={unknownData} />
+                    <UnknownCard
+                      unknown={unknown}
+                      unknownData={unknownData}
+                      key={unknown.id}
+                    />
                   );
                 })}
               </div>

@@ -10,16 +10,18 @@ import Users from "./components/Users/User";
 import Unknown from "./components/Unknown/Unknown";
 import SingleUserCard from "./components/singleUserCard/singleUserCard";
 import SingleUnknownCard from "./components/SingleUnknownCard/SingleUnknownCard";
+import Search from "./components/Search/Search";
 // import Store from "./store";
 
 function App() {
   // const { data } = useContext(Store);
+  //Search
+  const [value, setValue] = useState("");
   //Sidebar
   const [show, setShow] = useState(false);
   //Fetch User
   const [loading, setLoading] = useState(false);
   const [userData, setUserData] = useState([]);
-  const [allUsers, setAllUsers] = useState([]);
   const getUserData = async () => {
     setLoading(false);
     const request = await fetch("https://reqres.in/api/users?page=1/${id}");
@@ -49,12 +51,16 @@ function App() {
   useEffect(() => {
     getUnknownData();
   }, []);
-
   // console.log(data);
   return (
     <>
       <Header show={show} setShow={setShow} />
-      <Sidebar show={show} setShow={setShow} />
+      <Sidebar
+        show={show}
+        setShow={setShow}
+        value={value}
+        setValue={setValue}
+      />
       <Routes>
         <Route
           path="/"
@@ -69,7 +75,13 @@ function App() {
         <Route path="/profile" element={loading ? <Profile /> : <Loading />} />
         <Route
           path="/users"
-          element={loading ? <Users userData={userData} /> : <Loading />}
+          element={
+            loading ? (
+              <Users userData={userData} value={value} setValue={setValue} />
+            ) : (
+              <Loading />
+            )
+          }
         />
         <Route
           path="/unknown"
@@ -97,6 +109,21 @@ function App() {
             )
           }
         />
+        {/* <Route
+          path="/search"
+          element={
+            loading ? (
+              <Search
+                userTwoData={userTwoData}
+                userData={userData}
+                value={value}
+                setValue={setValue}
+              />
+            ) : (
+              <Loading />
+            )
+          }
+        /> */}
       </Routes>
     </>
   );

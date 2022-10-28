@@ -3,7 +3,8 @@ import "./User.scss";
 import UserCard from "../UserCard/UserCard";
 import Button from "../Button/Button";
 
-const User = ({ userData }) => {
+const User = ({ userData, value, setValue }) => {
+  console.log(value);
   const [userTwoData, setUserTwoData] = useState([]);
   const getUserTwoData = async () => {
     const request = await fetch("https://reqres.in/api/users?page=2");
@@ -21,7 +22,13 @@ const User = ({ userData }) => {
             <h1 className="all-user--title">All users</h1>
             <div className="all-user__cards">
               {userTwoData.map((user) => {
-                return <UserCard user={user} className="all-user__card" />;
+                return (
+                  <UserCard
+                    user={user}
+                    className="all-user__card"
+                    key={user.id}
+                  />
+                );
               })}
             </div>
             <Button

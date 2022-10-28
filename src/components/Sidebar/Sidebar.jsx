@@ -3,13 +3,7 @@ import "./Sidebar.scss";
 import Button from "../Button/Button";
 import { NavLink } from "react-router-dom";
 
-const Sidebar = ({ show, setShow }) => {
-  const [value, setValue] = useState("");
-  const [search, setSearch] = useState([]);
-  const searchName = async () => {
-    const request = await fetch(` `);
-  };
-
+const Sidebar = ({ show, setShow, setValue, value }) => {
   return (
     <>
       <div className="sidebar">
