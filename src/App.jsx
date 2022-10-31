@@ -16,7 +16,7 @@ import Search from "./components/Search/Search";
 function App() {
   // const { data } = useContext(Store);
   //Search
-  const [value, setValue] = useState("");
+  const [search, setSearch] = useState([]);
   //Sidebar
   const [show, setShow] = useState(false);
   //Fetch User
@@ -58,8 +58,10 @@ function App() {
       <Sidebar
         show={show}
         setShow={setShow}
-        value={value}
-        setValue={setValue}
+        setSearch={setSearch}
+        userTwoData={userTwoData}
+        userData={userData}
+        search={search}
       />
       <Routes>
         <Route
@@ -75,13 +77,7 @@ function App() {
         <Route path="/profile" element={loading ? <Profile /> : <Loading />} />
         <Route
           path="/users"
-          element={
-            loading ? (
-              <Users userData={userData} value={value} setValue={setValue} />
-            ) : (
-              <Loading />
-            )
-          }
+          element={loading ? <Users userData={userData} /> : <Loading />}
         />
         <Route
           path="/unknown"
@@ -109,21 +105,20 @@ function App() {
             )
           }
         />
-        {/* <Route
+        <Route
           path="/search"
           element={
             loading ? (
               <Search
                 userTwoData={userTwoData}
                 userData={userData}
-                value={value}
-                setValue={setValue}
+                search={search}
               />
             ) : (
               <Loading />
             )
           }
-        /> */}
+        />
       </Routes>
     </>
   );

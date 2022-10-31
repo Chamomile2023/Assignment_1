@@ -3,7 +3,24 @@ import "./Sidebar.scss";
 import Button from "../Button/Button";
 import { NavLink } from "react-router-dom";
 
-const Sidebar = ({ show, setShow, setValue, value }) => {
+const Sidebar = ({
+  show,
+  setShow,
+  setSearch,
+  userTwoData,
+  userData,
+  search,
+}) => {
+  const handleSearchResult = (e) => {
+    if (!e.target.value) return setSearch([...userData, userTwoData]);
+    const result = [...userData, ...userTwoData].filter((data) =>
+      (data.first_name.toLowerCase() || data.last_name.toLowerCase()).includes(
+        e.target.value.toLowerCase()
+      )
+    );
+    setSearch(result);
+  };
+
   return (
     <>
       <div className="sidebar">
@@ -20,8 +37,7 @@ const Sidebar = ({ show, setShow, setValue, value }) => {
                 type="text"
                 className="sidebar__middle--input"
                 placeholder="Search"
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
+                onChange={handleSearchResult}
               />
               <i className="fa-solid fa-magnifying-glass sidebar__middle--search"></i>
             </div>
