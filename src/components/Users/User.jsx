@@ -4,7 +4,6 @@ import UserCard from "../UserCard/UserCard";
 import Button from "../Button/Button";
 
 const User = ({ userData, value, setValue }) => {
-  console.log(value);
   const [userTwoData, setUserTwoData] = useState([]);
   const getUserTwoData = async () => {
     const request = await fetch("https://reqres.in/api/users?page=2");

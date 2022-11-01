@@ -6,7 +6,7 @@
         left: 50%;
         transform: translate(-50%);
         width: 300px;
-        height: 475px;
+        height: 430px;
         box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
         border-radius: 10px;
         text-align: center;
@@ -33,7 +33,7 @@
         &--button{
             width: 100%;
             padding: 15px 0;
-            margin-top: 45px;
+            // margin-top: 45px;
             &:hover .single__card--link{
                     color: #fff !important;
             }

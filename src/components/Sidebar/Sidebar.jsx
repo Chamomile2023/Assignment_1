@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Sidebar.scss";
 import Button from "../Button/Button";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Sidebar = ({
   show,
@@ -11,14 +12,29 @@ const Sidebar = ({
   userData,
   search,
 }) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  // }
+  const navigate = useNavigate();
+  const [searchValue, setSearchValue] = useState("")
+
   const handleSearchResult = (e) => {
-    if (!e.target.value) return setSearch([...userData, userTwoData]);
+    // if (!e.target.value) return setSearch([...userData, userTwoData]);
+    // else if (e.target.value == "") { "Nothing found" };
+    // const result = [...userData, ...userTwoData].filter((data) =>
+    //   (data.first_name.toLowerCase() || data.last_name.toLowerCase()).includes(
+    //     e.target.value.toLowerCase()
+    //   )
+    // );
+    // setSearch(result);
+    e.preventDefault()
     const result = [...userData, ...userTwoData].filter((data) =>
       (data.first_name.toLowerCase() || data.last_name.toLowerCase()).includes(
-        e.target.value.toLowerCase()
+        searchValue.toLowerCase()
       )
     );
     setSearch(result);
+    setShow(false)
   };
 
   return (
@@ -33,14 +49,20 @@ const Sidebar = ({
               </Button>
             </div>
             <div className="sidebar__middle">
-              <input
-                type="text"
-                className="sidebar__middle--input"
-                placeholder="Search"
-                onChange={handleSearchResult}
-              />
-              <i className="fa-solid fa-magnifying-glass sidebar__middle--search"></i>
-            </div>
+              <form onSubmit={
+                handleSearchResult
+              }>
+                <input
+                  type="text"
+                  className="sidebar__middle--input"
+                  placeholder="Search"
+                  value={searchValue}
+                  onChange={(e) => setSearchValue(e.target.value)}
+                />
+                <Button type="submit" className="sidebar__middle--search" onClick={() => navigate("/search")} >
+                  <i className="fa-solid fa-magnifying-glass"></i>
+                </Button>
+              </form></div>
             <div className="sidebar__end">
               <NavLink
                 to="/users"
@@ -63,7 +85,7 @@ const Sidebar = ({
             </div>
           </div>
           <div className="sidebar__right">
-            <div className="sidebar__right--overlay"></div>
+            <div className="sidebar__right--overlay" onClick={() => setShow(!show)}></div>
           </div>
         </div>
       </div>

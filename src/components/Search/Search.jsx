@@ -8,9 +8,13 @@ const Search = ({ userTwoData, userData, search }) => {
             <div className="search">
                 <div className="container">
                     <div className="search__hero">
-                        {search.map((user) => {
-                            return <UserCard key={user.id} user={user} />;
-                        })}
+                        {
+                            search.length > 0 ? search.map((user, index) => {
+                                return <UserCard key={index} user={user} />;
+                            })
+                                :
+                                <p className="Not_found">Nothing found, the user does not exit.</p>
+                        }
                     </div>
                 </div>
             </div>

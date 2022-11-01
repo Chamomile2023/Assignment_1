@@ -1,5 +1,5 @@
 import "./App.scss";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
@@ -41,6 +41,7 @@ function App() {
   useEffect(() => {
     getUserTwoData();
   }, []);
+  console.log(search);
   //Fetch Unknown
   const [unknownData, setUnknownData] = useState([]);
   const getUnknownData = async () => {
@@ -51,6 +52,7 @@ function App() {
   useEffect(() => {
     getUnknownData();
   }, []);
+  // getUnknownData();
   // console.log(data);
   return (
     <>
